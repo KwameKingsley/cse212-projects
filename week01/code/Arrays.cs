@@ -9,11 +9,19 @@ public static class Arrays
     public static double[] MultiplesOf(double number, int length)
     {
         // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // PLan:
+        // 1. Create a new array of doubles with the size of 'length'
+        // 2. Use a for loop to iterate from 0 to length - 1
+        // 3. For each index i, calculate the multiple by multiplying 'number' with (i + 1) and assign it to the array at index i
+        // 4. Store the calculated multiple in the array
+        // 5. Return the filled array after the loop completes
 
-        return []; // replace this return statement with your own
+        double[] result = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+        return result; // replace this return statement with your own
     }
 
     /// <summary>
@@ -26,8 +34,16 @@ public static class Arrays
     public static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Paln:
+        // 1. Determine the split point in the list by calculating splitIndex = data.Count - amount
+        // 2. Get the slice of elements that be moved to the front using GetRange(splitIndex, amount)
+        // 3. Remove the elements from the original list using RemoveRange(splitIndex, amount)
+        // 4. Insert the sliced elements at the beginning of the list using InsertRange(0, slicedList)
+
+        int splitIndex = data.Count - amount;
+
+        List<int> rightPart = data.GetRange(splitIndex, amount);
+        data.RemoveRange(splitIndex, amount);
+        data.InsertRange(0, rightPart);
     }
 }
