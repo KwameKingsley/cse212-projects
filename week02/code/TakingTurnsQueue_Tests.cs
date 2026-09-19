@@ -12,7 +12,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3) and
     // run until the queue is empty
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
-    // Defect(s) Found: PersonQueue.Enqueue was using _queue.Insert(0, person) instead of _queue.Add(person), 
+    // Defect(s) Found: PersonQueue.Enqueue was using _queue.Insert(0, person) instead of _queue.Add(person),  
     // causing LIFO (Stack) behavior instead of FIFO (Queue). Additionally, TakingTurnsQueue.GetNextPerson 
     // was not decrementing turns properly when re-enqueuing users with finite turns.
     public void TestTakingTurnsQueue_FiniteRepetition()
@@ -46,7 +46,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3)
     // After running 5 times, add George with 3 turns.  Run until the queue is empty.
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, George, Sue, Tim, George, Tim, George
-    // Defect(s) Found: PersonQueue was behaving like a Stack (LIFO) instead of a Queue (FIFO) due to 
+    // Defect(s) Found: PersonQueue was behaving like a Stack (LIFO) instead of a Queue (FIFO) due to  
     // inserting items at index 0 rather than appending to the end of the list.
     public void TestTakingTurnsQueue_AddPlayerMidway()
     {
